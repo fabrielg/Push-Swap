@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:08:33 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/03 00:45:55 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/03 00:56:11 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,14 @@ static void	stack_rotate_down(t_stack **stk)
 	t_stack	*last;
 	t_stack	*second_last;
 
-	last = stack_last(*stk);
 	second_last = (*stk);
 	if (second_last && second_last->next)
 	{
 		while (second_last->next->next)
 			second_last = second_last->next;
 	}
+	if (second_last->next)
+		last = second_last->next;
 	temp = *stk;
 	*stk = last;
 	(*stk)->next = temp;
