@@ -6,47 +6,76 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:08:33 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/30 17:25:57 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/03 00:45:55 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*stack_new(int value)
+int	stack_swap(t_stack *stk)
 {
-	t_stack	*new;
+	int	temp;
 
-	new = malloc(sizeof(t_stack));
-	if (!new)
-		return (NULL);
-	new->next = NULL;
-	new->value = value;
-	new->prev = NULL;
-	return (new);
+	if (!stk || !stk->next)
+		return (0);
+	temp = stk->value;
+	stk->value = stk->next->value;
+	stk->next->value = temp;
+	return (1);
 }
 
-int	stack_push(t_stack **stk, int value)
+int	stack_push(t_stack **src, t_stack **dest)
 {
-	t_stack	*new;
+	t_stack	*temp;
 
-	new = stack_new(value);
-	if (new)
+	if (!(*src))
+		return (0);
+	temp = (*src)->next;
+	(*src)->next = *dest;
+	*dest = *src;
+	*src = temp;
+	return (1);
+}
+
+static void	stack_rotate_up(t_stack **stk)
+{
+	t_stack	*temp;
+	t_stack	*last;
+
+	if (!(*stk)->next)
+		return ;
+	temp = *stk;
+	*stk = (*stk)->next;
+	last = stack_last(*stk);
+	temp->next = NULL;
+	last->next = temp;
+}
+
+static void	stack_rotate_down(t_stack **stk)
+{
+	t_stack	*temp;
+	t_stack	*last;
+	t_stack	*second_last;
+
+	last = stack_last(*stk);
+	second_last = (*stk);
+	if (second_last && second_last->next)
 	{
-		new->next = *stk;
-		*stk = new;
-		return (1);
+		while (second_last->next->next)
+			second_last = second_last->next;
 	}
-	return (0);
+	temp = *stk;
+	*stk = last;
+	(*stk)->next = temp;
+	second_last->next = NULL;
 }
 
-t_stack	*stack_pop(t_stack **stk)
+void	stack_rotate(t_stack **stk, char direction)
 {
-	t_stack	*pop;
-
-	pop = *stk;
-	if (!pop)
-		return (NULL);
-	*stk = pop->next;
-	pop->next = NULL;
-	return (pop);
+	if (!stk || !(*stk))
+		return ;
+	if (direction == UP)
+		stack_rotate_up(stk);
+	else if (direction == DOWN)
+		stack_rotate_down(stk);
 }
