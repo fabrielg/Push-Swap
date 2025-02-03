@@ -6,11 +6,12 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:48:06 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/03 00:45:33 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/03 17:57:30 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "libft.h"
 
 int	main(int ac, char **av)
 {

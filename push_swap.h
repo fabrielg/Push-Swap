@@ -6,15 +6,12 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:32:08 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/03 00:29:18 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/03 17:54:06 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-
-# include <stdlib.h>
-# include <stdio.h>
 
 # ifndef UP
 #  define UP 0

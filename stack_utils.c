@@ -6,11 +6,12 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 00:10:31 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/03 00:20:48 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/03 17:50:42 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "libft.h"
 
 t_stack	*stack_new(int value)
 {
