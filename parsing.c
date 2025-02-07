@@ -6,13 +6,13 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 15:28:44 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/07 18:55:18 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/07 19:44:50 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	free_parsing(char **split)
+static void	free_split(char **split)
 {
 	size_t	i;
 
@@ -24,30 +24,49 @@ static void	free_parsing(char **split)
 	free(split);
 }
 
-int	parsing(char **args, t_stack **stack)
+static int	apply_parsing(char **strs, t_stack **stack)
+{
+	size_t	i;
+	int		value;
+
+	i = 0;
+	while (strs[i])
+	{
+		if (!ft_atoi_strict(strs[i], &value))
+		{
+			free_split(strs);
+			stack_clear(stack);
+			return (0);
+		}
+		stack_add(stack, value);
+		i++;
+	}
+	return (1);
+}
+
+int	parsing(char **args, t_stack **dest)
 {
 	char	**split;
-	int		value;
-	size_t	i;
+	t_stack	*temp;
+	t_stack	*temp_temp;
 
+	temp = NULL;
 	while (*args)
 	{
 		split = ft_split((const char *)*args, ' ');
 		if (!split)
+			return (stack_clear(&temp), 0);
+		if (!apply_parsing(split, &temp))
 			return (0);
-		i = 0;
-		while (split[i])
-		{
-			if (!ft_atoi_strict(split[i], &value))
-			{
-				free_parsing(split);
-				return (0);
-			}
-			stack_add(stack, value);
-			i++;
-		}
-		free_parsing(split);
+		free_split(split);
 		args++;
 	}
+	temp_temp = temp;
+	while (temp)
+	{
+		stack_add(dest, temp->value);
+		temp = temp->next;
+	}
+	stack_clear(&temp_temp);
 	return (1);
 }
