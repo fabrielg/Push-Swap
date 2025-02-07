@@ -6,13 +6,14 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:32:08 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/03 18:38:35 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/07 12:47:45 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include "./libft/libft.h"
 # include "stack.h"
 
 typedef struct s_push_swap

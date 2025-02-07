@@ -6,20 +6,15 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:13:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/03 18:14:40 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/04 20:27:44 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STACK_H
 # define STACK_H
 
-# ifndef UP
-#  define UP 0
-# endif
-
-# ifndef DOWN
-#  define DOWN 1
-# endif
+# define UP 0
+# define DOWN 1
 
 typedef struct s_stack	t_stack;
 typedef struct s_stack

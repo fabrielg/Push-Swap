@@ -6,17 +6,16 @@
 #    By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/03 18:44:36 by gfrancoi          #+#    #+#              #
-#    Updated: 2025/02/03 19:22:15 by gfrancoi         ###   ########.fr        #
+#    Updated: 2025/02/07 12:45:32 by gfrancoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =		push_swap
-CC =		cc
 CFLAGS =	-Wall -Wextra -Werror
-LIBFT =		libft/libft.a
-INCLUDES =	-Ilibft/
+LIBFT =		./libft/libft.a
 
 SRCS = \
+	main.c\
 	stack_utils.c\
 	stack.c\
 	push_swap.c\
@@ -26,24 +25,19 @@ SRCS = \
 	swap.c
 
 OBJ_DIR = obj
-
-OBJS = $(addprefix $(OBJ_DIR)/, $(addsuffix .o, $(basename $(SRCS))))
-
-LIB_FLAGS = $(addprefix -L, $(dir $(LIBFT))) $(addprefix -l, $(patsubst lib%.a, %, $(notdir $(LIBFT))))
+OBJS = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.o)))
 
 all: $(NAME)
 
-$(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
+$(NAME): $(LIBFT) $(OBJS)
+	cc $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT)
+	
+$(LIBFT):
+	make -C ./libft/
 
 $(OBJ_DIR)/%.o: %.c
-	cc $(CFLAGS) -o $@ -c $< $(INCLUDES)
-	
-%.a:
-	make -C $(dir $@)
-
-$(NAME): $(OBJ_DIR) $(LIBFT) $(OBJS)
-	cc -o $(NAME) $(OBJS) $(LIB_FLAGS)
+	mkdir -p $(OBJ_DIR)
+	cc $(CFLAGS) -c -o $@ $^
 
 clean:
 	make clean -C ./libft/
@@ -55,4 +49,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: re fclean clean all
+.PHONY: all fclean clean re

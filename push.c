@@ -6,12 +6,11 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:34:09 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/03 18:35:46 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/07 12:48:01 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft.h"
 
 void	pa(t_push_swap *ps)
 {
