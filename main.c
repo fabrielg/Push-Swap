@@ -6,13 +6,22 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:48:06 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/07 14:55:54 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/07 18:39:04 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(void)
+int	main(int ac, char **av)
 {
+	t_stack	*a;
+
+	if (ac <= 1)
+		return (0);
+	a = NULL;
+	if (!parsing(++av, &a))
+		ft_printf("Error\n");
+	if (a)
+		stack_clear(&a);
 	return (0);
 }

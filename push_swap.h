@@ -6,13 +6,14 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:32:08 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/07 12:47:45 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/07 18:39:08 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include <limits.h>
 # include "./libft/libft.h"
 # include "stack.h"
 
@@ -38,5 +39,7 @@ void	rr(t_push_swap *ps);
 void	rra(t_push_swap *ps);
 void	rrb(t_push_swap *ps);
 void	rrr(t_push_swap *ps);
+
+int		parsing(char **args, t_stack **stack);
 
 #endif
