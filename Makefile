@@ -6,7 +6,7 @@
 #    By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/03 18:44:36 by gfrancoi          #+#    #+#              #
-#    Updated: 2025/02/07 12:45:32 by gfrancoi         ###   ########.fr        #
+#    Updated: 2025/02/07 14:54:53 by gfrancoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ LIBFT =		./libft/libft.a
 
 SRCS = \
 	main.c\
+	stack_display.c\
 	stack_utils.c\
 	stack.c\
 	push_swap.c\

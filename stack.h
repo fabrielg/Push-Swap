@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:13:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/04 20:27:44 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/07 14:54:24 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,9 @@ void	stack_rotate(t_stack **stk, char direction);
 
 t_stack	*stack_new(int value);
 t_stack	*stack_last(t_stack *stk);
-void	stack_add(t_stack **src, int value);
+int		stack_add(t_stack **src, int value);
+int		stack_pop(t_stack **src);
+int		stack_clear(t_stack **stk);
 void	stack_display(t_stack *stk);
 
 #endif
