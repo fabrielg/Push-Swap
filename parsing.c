@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 15:28:44 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/07 19:56:45 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/09 00:53:59 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,7 @@ int	parsing(char **args, t_stack **dest)
 		temp = temp->next;
 	}
 	stack_clear(&temp_temp);
-	return (!has_duplicates(*dest));
+	if (has_duplicates(*dest))
+		return (stack_clear(dest), 0);
+	return (1);
 }
