@@ -6,7 +6,7 @@
 #    By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/03 18:44:36 by gfrancoi          #+#    #+#              #
-#    Updated: 2025/02/07 18:45:17 by gfrancoi         ###   ########.fr        #
+#    Updated: 2025/02/08 20:40:18 by gfrancoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRCS = \
 	main.c\
 	parsing.c\
 	stack_display.c\
+	stack_update.c\
 	stack_utils.c\
 	stack.c\
 	push_swap.c\

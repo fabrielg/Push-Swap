@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_display.c                                    :+:      :+:    :+:   */
+/*   stack_update.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 00:10:31 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/08 20:31:18 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/08 20:40:09 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	stack_display(t_stack *stk)
+void	stack_update(t_stack *stk)
 {
+	int	index;
+
+	index = 0;
 	while (stk)
 	{
-		ft_printf("id: %d	- %03d -\n", stk->index, stk->value);
+		stk->index = index;
+		index++;
 		stk = stk->next;
 	}
 }
