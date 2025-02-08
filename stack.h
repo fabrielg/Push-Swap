@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:13:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/07 14:54:24 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/08 20:13:30 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ typedef struct s_stack	t_stack;
 typedef struct s_stack
 {
 	int		value;
+	int		index;
 	t_stack	*next;
 }	t_stack;
 

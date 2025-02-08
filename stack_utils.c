@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 00:10:31 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/07 14:54:09 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/08 20:28:35 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@ t_stack	*stack_new(int value)
 {
 	t_stack	*new;
 
-	new = malloc(sizeof(t_stack));
+	new = ft_calloc(1, sizeof(t_stack));
 	if (!new)
 		return (NULL);
-	new->next = NULL;
 	new->value = value;
 	return (new);
 }
@@ -27,18 +26,30 @@ t_stack	*stack_new(int value)
 int	stack_add(t_stack **src, int value)
 {
 	t_stack	*new;
+	t_stack	*first;
+	int		index;
 
 	new = stack_new(value);
 	if (!new)
 		return (0);
 	new->next = (*src);
-	(*src) = new;
+	first = new;
+	index = 0;
+	while (new)
+	{
+		new->index = index;
+		index++;
+		new = new->next;
+	}
+	(*src) = first;
 	return (1);
 }
 
 int	stack_pop(t_stack **src)
 {
 	t_stack	*top;
+	t_stack	*first;
+	int		index;
 
 	top = *src;
 	if (!top)
@@ -46,6 +57,15 @@ int	stack_pop(t_stack **src)
 	*src = top->next;
 	free(top);
 	top = NULL;
+	first = (*src);
+	index = 0;
+	while ((*src))
+	{
+		(*src)->index = index;
+		index++;
+		(*src) = (*src)->next;
+	}
+	(*src) = first;
 	return (1);
 }
 
