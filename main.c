@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:48:06 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/11 01:35:48 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/11 14:04:12 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,17 @@ int	main(int ac, char **av)
 		ft_printf("adress of rb: %p\n", rb);
 		ft_printf("adress of rra: %p\n", rra);
 		ft_printf("adress of rrb: %p\n", rrb);
-		while (ps->targets)
+		size_t	i = 0;
+		t_push_cost	*targets = ps->targets;
+		while (i < ps->nb_targets)
 		{
-			ft_printf("TARGET de %d: %d\n", ps->targets->stack->value, ps->targets->target->value);
-			while (ps->targets->operations)
+			ft_printf("TARGET de %d: %d\n", (ps->targets + i)->stack->value, (ps->targets + i)->target->value);
+			while ((ps->targets + i)->operations)
 			{
-				ft_printf("operation: %p\n", *ps->targets->operations);
-				ps->targets->operations = ps->targets->operations->next;
+				ft_printf("operation: %p\n", *(ps->targets + i)->operations);
+				(ps->targets + i)->operations = (ps->targets + i)->operations->next;
 			}
-			ps->targets++;
+			i++;
 		}
 	}
 	push_swap_clear(&ps);

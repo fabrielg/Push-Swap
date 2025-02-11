@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:32:07 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/11 00:40:19 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/11 14:06:22 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	init_push_swap(t_push_swap **push_swap, t_stack *stack_a)
 	(*push_swap)->a = stack_a;
 	(*push_swap)->b = NULL;
 	(*push_swap)->targets = NULL;
+	(*push_swap)->nb_targets = 0;
 	return (!!(*push_swap)->targets);
 }
 
@@ -36,12 +37,11 @@ void	push_swap_clear(t_push_swap **push_swap)
 		stack_clear(&(*push_swap)->a);
 	if ((*push_swap)->b)
 		stack_clear(&(*push_swap)->b);
-	/*if ((*push_swap)->targets)
+	if ((*push_swap)->targets)
 	{
-		if ((*push_swap)->targets->stack)
-			stack_clear(&(*push_swap)->targets->stack);
+		// TODO: free operations...
 		free((*push_swap)->targets);
-	}*/
+	}
 	free((*push_swap));
 	push_swap = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:32:08 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/11 00:20:25 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/11 13:56:32 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_push_swap
 	t_stack		*a;
 	t_stack		*b;
 	t_push_cost	*targets;
+	size_t		nb_targets;
 }	t_push_swap;
 
 int		init_push_swap(t_push_swap **push_swap, t_stack *stack_a);
