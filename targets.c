@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 23:47:10 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/11 14:01:41 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/12 00:09:30 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,10 @@ void	find_targets(t_push_swap *ps)
 	if (!ps || !ps->b || !ps->b->next)
 		return ;
 	if (ps->targets)
-		ft_printf(NULL);	// Clear the targets
+	{
+		ft_lstclear(&ps->targets->operations, NULL);
+		free(ps->targets);
+	}
 	ps->nb_targets = stack_size(ps->a);
 	ps->targets = ft_calloc(ps->nb_targets, sizeof(t_push_cost));
 	i = 0;
@@ -109,6 +112,7 @@ void	find_targets(t_push_swap *ps)
 	{
 		find_target(a_temp, ps->b, (ps->targets + i));
 		find_operations(ps->a, ps->b, (ps->targets + i));
+		operations_optimizer(&(ps->targets + i)->operations);
 		i++;
 		a_temp = a_temp->next;
 	}

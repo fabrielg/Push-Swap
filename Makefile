@@ -6,7 +6,7 @@
 #    By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/03 18:44:36 by gfrancoi          #+#    #+#              #
-#    Updated: 2025/02/11 01:40:47 by gfrancoi         ###   ########.fr        #
+#    Updated: 2025/02/12 00:02:15 by gfrancoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ LIBFT =		./libft/libft.a
 
 SRCS = \
 	main.c\
+	optimizer.c\
 	parsing.c\
 	stack_display.c\
 	stack_get_min_max.c\
