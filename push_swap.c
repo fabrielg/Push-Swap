@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:32:07 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/11 14:06:22 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/12 16:20:09 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,30 @@ int	init_push_swap(t_push_swap **push_swap, t_stack *stack_a)
 	return (!!(*push_swap)->targets);
 }
 
+void	clear_targets(t_push_cost **targets, size_t nb_targets)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < nb_targets)
+	{
+		ft_lstclear(&(*targets + i)->operations, NULL);
+		i++;
+	}
+	free(*targets);
+	targets = NULL;
+}
+
 void	push_swap_clear(t_push_swap **push_swap)
 {
 	if (!push_swap || !(*push_swap))
 		return ;
+	if ((*push_swap)->targets)
+		clear_targets(&(*push_swap)->targets, (*push_swap)->nb_targets);
 	if ((*push_swap)->a)
 		stack_clear(&(*push_swap)->a);
 	if ((*push_swap)->b)
 		stack_clear(&(*push_swap)->b);
-	if ((*push_swap)->targets)
-	{
-		// TODO: free operations...
-		free((*push_swap)->targets);
-	}
 	free((*push_swap));
 	push_swap = NULL;
 }

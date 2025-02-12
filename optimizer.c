@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 21:45:00 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/12 15:21:23 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/12 16:17:23 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,16 +60,18 @@ static void	compare(t_list **new, t_list *operations, void *first, void *second)
 void	operations_optimizer(t_list **operations)
 {
 	t_list	*optimized;
+	t_list	*temp;
 
 	optimized = NULL;
 	compare(&optimized, *operations, sa, sb);
 	compare(&optimized, *operations, ra, rb);
 	compare(&optimized, *operations, rra, rrb);
-	while ((*operations))
+	temp = (*operations);
+	while (temp)
 	{
-		if ((*operations)->content == pa || (*operations)->content == pb)
-			add_n_operation(&optimized, 1, (*operations)->content);
-		(*operations) = (*operations)->next;
+		if (temp->content == pa || temp->content == pb)
+			add_n_operation(&optimized, 1, temp->content);
+		temp = temp->next;
 	}
 	ft_lstclear(operations, NULL);
 	(*operations) = optimized;

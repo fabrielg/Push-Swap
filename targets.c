@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 23:47:10 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/12 00:09:30 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/12 16:15:44 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,10 +100,7 @@ void	find_targets(t_push_swap *ps)
 	if (!ps || !ps->b || !ps->b->next)
 		return ;
 	if (ps->targets)
-	{
-		ft_lstclear(&ps->targets->operations, NULL);
-		free(ps->targets);
-	}
+		clear_targets(&ps->targets, ps->nb_targets);
 	ps->nb_targets = stack_size(ps->a);
 	ps->targets = ft_calloc(ps->nb_targets, sizeof(t_push_cost));
 	i = 0;
