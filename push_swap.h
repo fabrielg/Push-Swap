@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:32:08 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/08 23:14:08 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/12 00:08:31 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@
 typedef struct s_push_cost
 {
 	t_stack	*stack;
-	int		target_index;
+	t_stack	*target;
+	t_list	*operations;
 	int		cost;
 }	t_push_cost;
 
@@ -29,10 +30,13 @@ typedef struct s_push_swap
 	t_stack		*a;
 	t_stack		*b;
 	t_push_cost	*targets;
+	size_t		nb_targets;
 }	t_push_swap;
 
 int		init_push_swap(t_push_swap **push_swap, t_stack *stack_a);
 void	push_swap_clear(t_push_swap **push_swap);
+void	find_targets(t_push_swap *ps);
+void	operations_optimizer(t_list **operations);
 
 void	sa(t_push_swap *ps);
 void	sb(t_push_swap *ps);
