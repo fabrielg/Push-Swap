@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 23:47:10 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/12 16:15:44 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/12 17:20:35 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ static void	find_target(t_stack *to_push, t_stack *b, t_push_cost *target)
 	t_stack		*min;
 	t_stack		*max;
 
-	min = get_min(b);
-	max = get_max(b);
+	min = stack_get_min(b);
+	max = stack_get_max(b);
 	target->stack = to_push;
 	if (to_push->value < min->value || max->value < to_push->value)
 		target->target = max;
