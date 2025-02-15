@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:48:06 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/12 17:21:17 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/14 19:51:13 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	sort(t_push_swap *ps)
 		operation = cheapest->operations->content;
 		(*operation)(ps);
 		cheapest->operations = cheapest->operations->next;
-	}	
+	}
 }
 
 void	sort_three(t_push_swap *ps)
@@ -56,29 +56,15 @@ void	sort_three(t_push_swap *ps)
 
 void	turk_sort(t_push_swap *ps)
 {
-	pb(ps);
-	pb(ps);
-	ft_printf("A:\n");
-	stack_display(ps->a);
-	ft_printf("B:\n");
-	stack_display(ps->b);
-	ft_printf("\n");
-	ft_printf("START SORTING:\n");
-	while (stack_size(ps->a) > 3)
+	if (stack_size(ps->a) > 3)
 	{
-		sort(ps);
-		ft_printf("A:\n");
-		stack_display(ps->a);
-		ft_printf("B:\n");
-		stack_display(ps->b);
-		ft_printf("\n");
+		pb(ps);
+		if (stack_size(ps->a) > 3)
+			pb(ps);
+		while (stack_size(ps->a) > 3)
+			sort(ps);
 	}
 	sort_three(ps);
-	ft_printf("A:\n");
-	stack_display(ps->a);
-	ft_printf("B:\n");
-	stack_display(ps->b);
-	ft_printf("\n");
 }
 
 int	is_sorted(t_push_swap *ps)
