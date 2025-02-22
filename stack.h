@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:13:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/11 01:41:00 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/12 17:10:05 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		stack_clear(t_stack **stk);
 void	stack_display(t_stack *stk);
 void	stack_update(t_stack *stk);
 size_t	stack_size(t_stack *stk);
-t_stack	*get_min(t_stack *stk);
-t_stack	*get_max(t_stack *stk);
+t_stack	*stack_get_min(t_stack *stk);
+t_stack	*stack_get_max(t_stack *stk);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 01:39:40 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/11 01:41:45 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/12 17:09:54 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*get_min(t_stack *stk)
+t_stack	*stack_get_min(t_stack *stk)
 {
 	t_stack	*min;
 
@@ -28,7 +28,7 @@ t_stack	*get_min(t_stack *stk)
 	return (min);
 }
 
-t_stack	*get_max(t_stack *stk)
+t_stack	*stack_get_max(t_stack *stk)
 {
 	t_stack	*max;
 

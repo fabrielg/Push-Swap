@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   targets.c                                          :+:      :+:    :+:   */
+/*   targets_b.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 23:47:10 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/12 16:15:44 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/22 13:18:57 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ static void	find_target(t_stack *to_push, t_stack *b, t_push_cost *target)
 	t_stack		*min;
 	t_stack		*max;
 
-	min = get_min(b);
-	max = get_max(b);
+	min = stack_get_min(b);
+	max = stack_get_max(b);
 	target->stack = to_push;
 	if (to_push->value < min->value || max->value < to_push->value)
 		target->target = max;
@@ -92,7 +92,7 @@ static void	find_operations(t_stack *a, t_stack *b, t_push_cost *target)
 	ft_lstadd_back(&target->operations, ft_lstnew(pb));
 }
 
-void	find_targets(t_push_swap *ps)
+void	find_targets_b(t_push_swap *ps)
 {
 	t_stack	*a_temp;
 	size_t	i;

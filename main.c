@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:48:06 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/12 16:20:29 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/22 13:21:00 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,7 @@ int	main(int ac, char **av)
 	else
 	{
 		init_push_swap(&ps, a);
-		pb(ps);
-		pb(ps);
-		ft_printf("A:\n");
-		stack_display(ps->a);
-		ft_printf("B:\n");
-		stack_display(ps->b);
-		ft_printf("\n");
-		find_targets(ps);
+		turk_sort(ps);
 	}
 	push_swap_clear(&ps);
 	return (0);
