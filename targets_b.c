@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   targets.c                                          :+:      :+:    :+:   */
+/*   targets_b.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 23:47:10 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/12 17:20:35 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/22 13:18:57 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ static void	find_operations(t_stack *a, t_stack *b, t_push_cost *target)
 	ft_lstadd_back(&target->operations, ft_lstnew(pb));
 }
 
-void	find_targets(t_push_swap *ps)
+void	find_targets_b(t_push_swap *ps)
 {
 	t_stack	*a_temp;
 	size_t	i;
