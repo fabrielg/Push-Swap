@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:32:07 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/22 20:25:41 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/22 21:11:08 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,17 @@ int	init_push_swap(t_push_swap **push_swap, t_stack *stack_a)
 void	clear_targets(t_push_cost **targets, size_t nb_targets)
 {
 	size_t	i;
-	t_list	*operations;
 
+	if (!targets || !*targets)
+		return ;
 	i = 0;
 	while (i < nb_targets)
 	{
-		operations = (*targets + i)->operations;
-		ft_lstclear(&operations, NULL);
-		free((*targets) + i);
+		if ((*targets + i)->operations)
+			ft_lstclear(&((*targets + i)->operations), NULL);
 		i++;
 	}
+	free(*targets);
 	*targets = NULL;
 }
 
