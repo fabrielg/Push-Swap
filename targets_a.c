@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 23:47:10 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/22 13:18:50 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/22 23:47:56 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,10 @@ static void	cost_a_calculation(size_t size_a, t_push_cost *target)
 static void	find_operations(t_stack *a, t_stack *b, t_push_cost *target)
 {
 	size_t	size_a;
-	size_t	size_b;
 
 	if (!a || !b || !target)
 		return ;
 	size_a = stack_size(a);
-	size_b = stack_size(b);
 	target->operations = NULL;
 	cost_a_calculation(size_a, target);
 	ft_lstadd_back(&target->operations, ft_lstnew(pa));
