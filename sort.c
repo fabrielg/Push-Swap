@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 13:20:49 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/22 13:57:22 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/22 21:11:22 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,42 +14,46 @@
 
 static void	sort_in_b(t_push_swap *ps)
 {
-	t_push_cost	*cheapest;
-	void		(*operation)(t_push_swap *);
-	size_t		nb_operations;
-	size_t		i;
+	t_list	*cheapest;
+	void	(*operation)(t_push_swap *);
+	size_t	nb_operations;
+	size_t	i;
 
 	find_targets_b(ps);
-	cheapest = ps->targets;
-	nb_operations = ft_lstsize(cheapest->operations);
+	cheapest = ps->targets->operations;
+	nb_operations = ft_lstsize(cheapest);
 	i = 1;
 	while (i < ps->nb_targets && nb_operations > 1)
 	{
 		nb_operations = ft_lstsize((ps->targets + i)->operations);
-		if (nb_operations < ft_lstsize(cheapest->operations))
-			cheapest = (ps->targets + i);
+		if (nb_operations < ft_lstsize(cheapest))
+			cheapest = (ps->targets + i)->operations;
 		i++;
 	}
-	while (cheapest->operations)
+	while (cheapest)
 	{
-		operation = cheapest->operations->content;
+		operation = cheapest->content;
 		(*operation)(ps);
-		cheapest->operations = cheapest->operations->next;
+		cheapest = cheapest->next;
 	}
 }
 
 static void	sort_in_a(t_push_swap *ps)
 {
-	void		(*operation)(t_push_swap *);
+	t_list	*operations_temp;
+	void	(*operation)(t_push_swap *);
 
 	while (ps->b)
 	{
 		find_target_a(ps);
-		while (ps->targets->operations)
+		if (!ps->targets)
+			return ;
+		operations_temp = ps->targets->operations;
+		while (operations_temp)
 		{
-			operation = ps->targets->operations->content;
+			operation = operations_temp->content;
 			(*operation)(ps);
-			ps->targets->operations = ps->targets->operations->next;
+			operations_temp = operations_temp->next;
 		}
 	}
 }

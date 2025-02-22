@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:32:07 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/12 16:20:09 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/22 21:11:08 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,17 @@ void	clear_targets(t_push_cost **targets, size_t nb_targets)
 {
 	size_t	i;
 
+	if (!targets || !*targets)
+		return ;
 	i = 0;
 	while (i < nb_targets)
 	{
-		ft_lstclear(&(*targets + i)->operations, NULL);
+		if ((*targets + i)->operations)
+			ft_lstclear(&((*targets + i)->operations), NULL);
 		i++;
 	}
 	free(*targets);
-	targets = NULL;
+	*targets = NULL;
 }
 
 void	push_swap_clear(t_push_swap **push_swap)
