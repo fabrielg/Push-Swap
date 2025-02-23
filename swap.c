@@ -6,27 +6,30 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:18:03 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/07 12:48:12 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/23 13:39:26 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_push_swap *ps)
+void	sa(t_push_swap *ps, int display)
 {
 	stack_swap(ps->a);
-	ft_printf("sa\n");
+	if (display)
+		ft_printf("sa\n");
 }
 
-void	sb(t_push_swap *ps)
+void	sb(t_push_swap *ps, int display)
 {
 	stack_swap(ps->b);
-	ft_printf("sb\n");
+	if (display)
+		ft_printf("sb\n");
 }
 
-void	ss(t_push_swap *ps)
+void	ss(t_push_swap *ps, int display)
 {
 	stack_swap(ps->a);
 	stack_swap(ps->b);
-	ft_printf("ss\n");
+	if (display)
+		ft_printf("ss\n");
 }

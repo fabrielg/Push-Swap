@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 23:47:10 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/22 15:24:24 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/23 13:42:19 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	find_target(t_stack *to_push, t_stack *b, t_push_cost *target)
 static void	cost_a_calculation(size_t size_a, t_push_cost *target)
 {
 	size_t	nb_rotation;
-	void	(*operation)(t_push_swap *);
+	void	(*operation)(t_push_swap *, int display);
 
 	nb_rotation = target->stack->index;
 	operation = &ra;
@@ -61,7 +61,7 @@ static void	cost_a_calculation(size_t size_a, t_push_cost *target)
 static void	cost_target_calculation(size_t size_b, t_push_cost *target)
 {
 	size_t	nb_rotation;
-	void	(*operation)(t_push_swap *);
+	void	(*operation)(t_push_swap *, int display);
 
 	nb_rotation = target->target->index;
 	operation = &rb;

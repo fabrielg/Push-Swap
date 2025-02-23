@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:32:08 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/22 13:56:47 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/23 13:40:24 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,20 +42,20 @@ void	turk_sort(t_push_swap *ps);
 void	rotate_a_until_sorted(t_push_swap *ps);
 int		is_sorted(t_stack *stack);
 
-void	sa(t_push_swap *ps);
-void	sb(t_push_swap *ps);
-void	ss(t_push_swap *ps);
+void	sa(t_push_swap *ps, int display);
+void	sb(t_push_swap *ps, int display);
+void	ss(t_push_swap *ps, int display);
 
-void	pa(t_push_swap *ps);
-void	pb(t_push_swap *ps);
+void	pa(t_push_swap *ps, int display);
+void	pb(t_push_swap *ps, int display);
 
-void	ra(t_push_swap *ps);
-void	rb(t_push_swap *ps);
-void	rr(t_push_swap *ps);
+void	ra(t_push_swap *ps, int display);
+void	rb(t_push_swap *ps, int display);
+void	rr(t_push_swap *ps, int display);
 
-void	rra(t_push_swap *ps);
-void	rrb(t_push_swap *ps);
-void	rrr(t_push_swap *ps);
+void	rra(t_push_swap *ps, int display);
+void	rrb(t_push_swap *ps, int display);
+void	rrr(t_push_swap *ps, int display);
 
 int		parsing(char **args, t_stack **stack);
 

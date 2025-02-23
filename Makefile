@@ -6,7 +6,7 @@
 #    By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/03 18:44:36 by gfrancoi          #+#    #+#              #
-#    Updated: 2025/02/23 12:59:14 by gfrancoi         ###   ########.fr        #
+#    Updated: 2025/02/23 13:04:10 by gfrancoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ LIBFT =				./libft/libft.a
 
 SRCS = \
 	main.c\
+	is_sorted.c\
 	optimizer.c\
 	parsing.c\
 	stack_display.c\
@@ -29,7 +30,6 @@ SRCS = \
 	push.c\
 	reverse_rotate.c\
 	rotate.c\
-	sort_utils.c\
 	sort.c\
 	swap.c\
 	targets_b.c\
@@ -37,6 +37,7 @@ SRCS = \
 
 SRCS_CHECKER = \
 	main_checker.c\
+	is_sorted.c\
 	parsing.c\
 	stack_display.c\
 	stack_get_min_max.c\
