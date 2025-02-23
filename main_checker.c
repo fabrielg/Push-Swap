@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:48:06 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/23 14:23:22 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/23 15:49:42 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	execute(char *op, t_push_swap *ps)
 		push_swap_clear(&ps);
 		free(op);
 		ft_putstr_fd("Error\n", 2);
+		get_next_line(-42);
 		exit(1);
 	}
 	operation(ps, 0);
@@ -88,6 +89,7 @@ int	main(int ac, char **av)
 			ft_putstr_fd("OK\n", 1);
 		else
 			ft_putstr_fd("KO\n", 1);
+		get_next_line(-42);
 	}
 	push_swap_clear(&ps);
 	return (0);
