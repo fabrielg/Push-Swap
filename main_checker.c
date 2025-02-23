@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:48:06 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/23 15:49:42 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/23 15:56:13 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ typedef struct s_entry
 	void	(*operation)(t_push_swap *, int display);
 }	t_entry;
 
-void	*get_operation(char *operation)
+static void	*get_operation(char *operation)
 {
 	static t_entry	operations[] = {
 		(t_entry){"pa\n", pa},
@@ -47,7 +47,7 @@ void	*get_operation(char *operation)
 	return (NULL);
 }
 
-void	execute(char *op, t_push_swap *ps)
+static void	execute(char *op, t_push_swap *ps)
 {
 	void	(*operation)(t_push_swap *, int display);
 
@@ -63,11 +63,23 @@ void	execute(char *op, t_push_swap *ps)
 	operation(ps, 0);
 }
 
+static void	ask_operations(t_push_swap *ps)
+{
+	char		*op;
+
+	op = get_next_line(0);
+	while (op)
+	{
+		execute(op, ps);
+		free(op);
+		op = get_next_line(0);
+	}
+}
+
 int	main(int ac, char **av)
 {
 	t_push_swap	*ps;
 	t_stack		*a;
-	char		*op;
 
 	if (ac <= 1)
 		return (0);
@@ -78,13 +90,7 @@ int	main(int ac, char **av)
 	else
 	{
 		init_push_swap(&ps, a);
-		op = get_next_line(0);
-		while (op)
-		{
-			execute(op, ps);
-			free(op);
-			op = get_next_line(0);
-		}
+		ask_operations(ps);
 		if (is_sorted(ps->a) && stack_size(ps->b) == 0)
 			ft_putstr_fd("OK\n", 1);
 		else
