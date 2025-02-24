@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:48:06 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/24 11:50:31 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/24 12:03:38 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,12 @@ static void	execute(char *op, t_push_swap *ps)
 	operation(ps, 0);
 }
 
-static void	ask_operations(t_push_swap *ps)
+static int	ask_operations(t_push_swap *ps)
 {
 	char		*op;
 
+	if (!ps)
+		return (0);
 	op = get_next_line(0);
 	while (op)
 	{
@@ -74,6 +76,7 @@ static void	ask_operations(t_push_swap *ps)
 		free(op);
 		op = get_next_line(0);
 	}
+	return (1);
 }
 
 int	main(int ac, char **av)
@@ -90,17 +93,13 @@ int	main(int ac, char **av)
 	else
 	{
 		init_push_swap(&ps, a);
-		if (!ps)
+		if (!ask_operations(ps))
 			ft_putstr_fd("Error\n", 2);
+		else if (is_sorted(ps->a) && stack_size(ps->b) == 0)
+			ft_putstr_fd("OK\n", 1);
 		else
-		{
-			ask_operations(ps);
-			if (is_sorted(ps->a) && stack_size(ps->b) == 0)
-				ft_putstr_fd("OK\n", 1);
-			else
-				ft_putstr_fd("KO\n", 1);
-			get_next_line(-42);
-		}
+			ft_putstr_fd("KO\n", 1);
+		get_next_line(-42);
 	}
 	push_swap_clear(&ps);
 	return (0);
