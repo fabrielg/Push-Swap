@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:32:08 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/23 13:40:24 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/24 11:30:17 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ typedef struct s_push_swap
 int		init_push_swap(t_push_swap **push_swap, t_stack *stack_a);
 void	push_swap_clear(t_push_swap **push_swap);
 void	clear_targets(t_push_cost **targets, size_t nb_targets);
-void	find_targets_b(t_push_swap *ps);
-void	find_target_a(t_push_swap *ps);
+int		find_targets_b(t_push_swap *ps);
+int		find_target_a(t_push_swap *ps);
 void	operations_optimizer(t_list **operations);
-void	turk_sort(t_push_swap *ps);
+int		turk_sort(t_push_swap *ps);
 void	rotate_a_until_sorted(t_push_swap *ps);
 int		is_sorted(t_stack *stack);
 

@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:48:06 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/22 19:44:50 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/24 11:31:02 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@ int	main(int ac, char **av)
 	a = NULL;
 	ps = NULL;
 	if (!parsing(++av, &a))
-		ft_printf("Error\n");
+		ft_putstr_fd("Error\n", 1);
 	else
 	{
 		init_push_swap(&ps, a);
-		turk_sort(ps);
+		if (!turk_sort(ps))
+			ft_putstr_fd("Error\n", 1);
 	}
 	push_swap_clear(&ps);
 	return (0);

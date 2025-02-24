@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 13:20:49 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/23 13:44:17 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/24 11:38:17 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ static void	sort_in_b(t_push_swap *ps)
 	size_t	nb_operations;
 	size_t	i;
 
-	find_targets_b(ps);
+	if (!find_targets_b(ps))
+		return ;
 	cheapest = ps->targets->operations;
 	nb_operations = ft_lstsize(cheapest);
 	i = 1;
@@ -45,8 +46,7 @@ static void	sort_in_a(t_push_swap *ps)
 
 	while (ps->b)
 	{
-		find_target_a(ps);
-		if (!ps->targets)
+		if (!find_target_a(ps))
 			return ;
 		operations_temp = ps->targets->operations;
 		while (operations_temp)
@@ -89,10 +89,12 @@ void	rotate_a_until_sorted(t_push_swap *ps)
 		(*operation)(ps, 1);
 }
 
-void	turk_sort(t_push_swap *ps)
+int	turk_sort(t_push_swap *ps)
 {
+	if (!ps)
+		return (0);
 	if (is_sorted(ps->a))
-		return ;
+		return (1);
 	if (stack_size(ps->a) > 3)
 	{
 		pb(ps, 1);
@@ -104,4 +106,5 @@ void	turk_sort(t_push_swap *ps)
 	sort_three(ps);
 	sort_in_a(ps);
 	rotate_a_until_sorted(ps);
+	return (1);
 }

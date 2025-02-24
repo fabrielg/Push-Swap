@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:32:07 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/22 21:11:08 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/24 11:28:45 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	init_push_swap(t_push_swap **push_swap, t_stack *stack_a)
 	if (nb_element == 0)
 		return (0);
 	(*push_swap) = ft_calloc(1, sizeof(t_push_swap));
-	if (!push_swap)
+	if (!(*push_swap))
 		return (0);
 	(*push_swap)->a = stack_a;
 	(*push_swap)->b = NULL;
